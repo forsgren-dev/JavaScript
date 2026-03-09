@@ -15,8 +15,8 @@ let bigIntTest = 1234n;
 let symbolTest = Symbol("propertyName");    // ensures a unique identifier, even if propertyname is the same
 let objectTest = {name: `Martin`, age: 21 + 40};   // empty object, object root of every type on js
 
-console.log(objectTest.phone)
-console.log(objectTest.age)
+console.log(objectTest.phone);
+console.log(objectTest.age);
 
 // undefined, null, defines not set a value, NaN is used to indicate Not A Number
 let undefinedTest = undefined;
@@ -24,10 +24,11 @@ let nullTest = null;
 let NaNTest = NaN;
 
 
+
 // constants are declared using const, and cannot be reassigned
 const stringConst = "I am a constant string";
 //stringConst = "trying to set another value";  // TypeError
-
+console.log("TYPES:");
 //use console.log() to print expressions and variables to the console
 console.log(stringTest, typeof stringTest);
 console.log(numberTest, typeof numberTest);
@@ -130,3 +131,5 @@ function isEqual(obj1, obj2) {
 4. create a couple of objects with properterties and test equality (value and referential)
 
 */
+
+
