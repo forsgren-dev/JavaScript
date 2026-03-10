@@ -6,7 +6,7 @@ import musicService from'./music-group-f-service.js';
 (async () => {
 
   //Initialize the service
-  const _service = new musicService(`https://seido-webservice-307d89e1f16a.azurewebsites.net/api`);
+  const _service = new musicService(`https://music.api.public.seido.se/api`);
 
   //Read Database info async
   let data = await _service.readInfoAsync();
@@ -62,7 +62,7 @@ import musicService from'./music-group-f-service.js';
     `${musicgroupId}`
     ]
   }
-  data = await _service.upsertArtistAsync(newItem)
+  data = await _service.createArtistAsync(newItem)
   console.log(data);
 
   //change the name of the newly created music group

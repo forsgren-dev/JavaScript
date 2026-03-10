@@ -3,13 +3,17 @@ import {seedGenerator, uniqueId, randomNumber, deepCopy, isEqual} from '../../..
 
 
 let stringTest = '42';
+
 let numberTest = 42;
+let numberAsString = numberTest + '';
+
 const blankTest = '';
 const nullTest = null;
 const wrappedTest = new String('42');
 
 console.log(typeof stringTest);
 console.log(typeof numberTest);
+console.log(typeof number2);
 console.log(typeof wrappedTest);
 console.log(typeof null);
 console.log(typeof undefined);
@@ -35,7 +39,7 @@ if (typeof wrappedTest === 'string') {
 
 
 console.log('\nUNSAFE way to Test for content in a string');
-if (stringTest) {
+if (stringTest) { // try numberTest
   console.log('DANGER! sloppy stringTest');
 }
 
@@ -89,16 +93,23 @@ if (typeof numberTest === 'number' && !Number.isNaN(numberTest)) {
 }
 
 
+//Use negation to test for wrong parameters in a function, this is a common pattern in js code, 
+//but be careful to use it correctly.
+//Hint, test for what it should be, then negate and return.
+
 function myFunc1(myParam) {
   
-  //myParam1 should be a non-empty string
+  //myParam1 MUST be a non-empty string
+
+  //validation using negation pattern
   if (!(typeof myParam === 'string' && myParam.length > 0)) {
 
     console.log("\nwrong type - cannot run the algorithm");
     return;
   }
 
-    console.log("\nNon empty string - do the algorithm");
+  //is'all good man
+  console.log("\nNon empty string - do the algorithm");
 }
 
 myFunc1("Martin");
@@ -109,9 +120,10 @@ myFunc1(0);
 
 function myFunc2(myParam1, myParam2) {
 
-  //myParam1 should be a non-empty string
-  //myParam2 should be a valid number
+  //myParam1 MUST be a non-empty string
+  //myParam2 MUST be a valid number
 
+  //validation using negation pattern
   if (!(typeof myParam1 === 'string' && myParam1.length > 0)) {
     console.log("myParam1 is a wrong parameter"); 
     return;
@@ -121,8 +133,8 @@ function myFunc2(myParam1, myParam2) {
     return;
   }
 
+  //is'all good man
   console.log("myParam1 is a non-empty string and myParam2 is a valid number");
-
 }
 
 myFunc2(5, 5);
@@ -132,12 +144,14 @@ myFunc2("5", NaN);
 
 /* Exercises
 
-1. write code that: declare a variable myVar without assigning a value to it; 
-   write to the console myVar and the typeof myVar, 
-2. write code to check if myVar is an non-empty string, using safe way to test for content as above
-3. write code to check if myVar is an non-empty string, using sloppy if (myVar)
+1. write a function that takes 4 parameters, 
+  first parameter must be a non-empty object,
+  second parameter must be a non-empty string,
+  third parameter must be a valid number,
+  fourth parameter must be a boolean. 
+  
+  The function should test for the correct types of each parameter and return true if all parameters are correct, otherwise false.
+  Use the negation pattern to test for wrong parameters and return false, then return true at the end of the function if all parameters are correct.
 
-4. run the code in 2 and 3 with myVar unassigned and with valid number. See how sloppy test fails, why?
-
-5. write code to test i myVar is a valid number;
+2. Modify first parameter so it must be a non-empty object containing a specific property, for example 'name'.
 */
