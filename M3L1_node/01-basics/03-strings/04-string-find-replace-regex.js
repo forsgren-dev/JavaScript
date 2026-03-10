@@ -35,7 +35,7 @@ console.log(`The regex ${regexReplace} changes "${originalString}" to "${newStri
 
 1. Write code that replaces every tag '<firstName/>' in below text, with your name using RegEx. 
    
-'<firstName/> ipsum dolor sit amet, consectetur adipisicing elit, sed do <firstName/> tempor incididunt ut labore et dolore magna aliqua. 
+let orgStr = '<firstName/> ipsum dolor sit amet, consectetur adipisicing elit, sed do <firstName/> tempor incididunt ut labore et dolore magna aliqua. 
    Ut enim ad minim <firstName/>, quis nostrud exercitation ullamco <firstName/> nisi ut aliquip ex ea commodo consequat.'
 
 2. Write code that finds all the numbers in below text. Write to console how many numbers there are.
@@ -43,3 +43,22 @@ console.log(`The regex ${regexReplace} changes "${originalString}" to "${newStri
  'Lorem3 ipsum 45 dolor sit amet, 5consectetur adipisicing_99 elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
  Ut enim ad minim ven3iam, quis nostrud exercitation ull_88_amco laboris nisi ut aliquip ex ea com36modo 183 consequat.'
 */
+
+let orgStr = '<firstName/> ipsum dolor sit amet, consectetur adipisicing elit, sed do <firstName/> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <firstName/>, quis nostrud exercitation ullamco <firstName/> nisi ut aliquip ex ea commodo consequat.'
+
+const replace = /\W\bf\w{8}\W\W/g;
+
+orgStr = orgStr.replaceAll(replace, 'Erik');
+
+console.log(orgStr);
+
+let countStr = 'Lorem3 ipsum 45 dolor sit amet, 5consectetur adipisicing_99 elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ven3iam, quis nostrud exercitation ull_88_amco laboris nisi ut aliquip ex ea com36modo 183 consequat.'
+
+const count = /\d+/g;
+
+const found = countStr.match(count);
+
+console.log(countStr);
+console.log(`There are ${found.length} numbers in the text.`);
+
+
