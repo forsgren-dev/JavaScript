@@ -1,5 +1,5 @@
 'use strict';
-import {seedGenerator, uniqueId, randomNumber, deepCopy, isEqual} from '../../../SeidoHelpers/seido-helpers.js';
+import { seedGenerator, uniqueId, randomNumber, deepCopy, isEqual } from '../../../SeidoHelpers/seido-helpers.js';
 
 
 let stringTest = '42';
@@ -98,7 +98,7 @@ if (typeof numberTest === 'number' && !Number.isNaN(numberTest)) {
 //Hint, test for what it should be, then negate and return.
 
 function myFunc1(myParam) {
-  
+
   //myParam1 MUST be a non-empty string
 
   //validation using negation pattern
@@ -125,11 +125,11 @@ function myFunc2(myParam1, myParam2) {
 
   //validation using negation pattern
   if (!(typeof myParam1 === 'string' && myParam1.length > 0)) {
-    console.log("myParam1 is a wrong parameter"); 
+    console.log("myParam1 is a wrong parameter");
     return;
   }
   if (!(typeof myParam2 === 'number' && !Number.isNaN(myParam2))) {
-    console.log("my Param2 is a wrong parameter"); 
+    console.log("my Param2 is a wrong parameter");
     return;
   }
 
@@ -155,3 +155,43 @@ myFunc2("5", NaN);
 
 2. Modify first parameter so it must be a non-empty object containing a specific property, for example 'name'.
 */
+
+function funcT(param1, param2, param3, param4) {
+
+  if (!(typeof param1 === "object" && Object.keys(param1).length > 0)) {
+    console.log("Wrong parameter in pos 1");
+    return false;
+  }
+
+  if (!('name' in param1)) {
+    console.log("Param1 must include property \'name\'!");
+    return false;
+  }
+
+  if (!(typeof param2 === "string" && param2.length > 0)) {
+    console.log("Wrong parameter in pos 2!");
+    return false;
+  }
+
+  if (!(typeof param3 === 'number' && !Number.isNaN(param3))) {
+console.log("Wrong parameter in pos 3!");
+return false;
+  }
+
+  if (!(typeof param4 === "boolean")) {
+    console.log("Wrong parameter in pos 4!");
+    return false;
+  }
+
+  console.log("Everything is OK!");
+  return true;
+}
+
+const test1 = funcT({name: "Kalle"}, "Hej", 23, true);
+console.log(test1);
+
+const test2 = funcT({name: "Kalle"}, "", NaN, "Hej");
+console.log(test2);
+
+const test3 = funcT({first: "Hello"}, "Hej", 23, true);
+console.log(test3);

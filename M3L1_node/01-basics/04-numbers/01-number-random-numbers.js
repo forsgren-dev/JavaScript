@@ -1,5 +1,5 @@
 'use strict';
-import {seedGenerator, uniqueId, randomNumber, deepCopy, isEqual} from '../../../SeidoHelpers/seido-helpers.js';
+import { seedGenerator, uniqueId, randomNumber, deepCopy, isEqual } from '../../../SeidoHelpers/seido-helpers.js';
 
 
 console.log(Math.random());
@@ -18,8 +18,9 @@ function rnd(min, max) {
 console.log(rnd(1000, 2000));
 console.log(rnd(0, 10));
 
-function rndDecimal (_from, _to, _nrDecimals=3) {
-  return rnd(_from * 10**_nrDecimals, _to * 10**_nrDecimals) / 10**_nrDecimals};
+function rndDecimal(_from, _to, _nrDecimals = 3) {
+  return rnd(_from * 10 ** _nrDecimals, _to * 10 ** _nrDecimals) / 10 ** _nrDecimals
+};
 
 console.log(rndDecimal(1000, 2000));
 console.log(rndDecimal(0, 10, 5));
@@ -31,3 +32,16 @@ const lNames = 'Smith, Schultz, Perez, Johnsson'.split(', ');
 1. write to the console 20 random full names from above list. Take the steps, exract the list of names, trim it, pick a name randomly, create a full name
 
 */
+
+const fNames = 'John, Mary, Hans, Hasse, Bosse, Masse, Thomas, José, Susanne'.split(', ');
+const lNames = 'Smith, Schultz, Perez, Johnsson, Svensson, Andersson, Bengtsson, Larsson'.split(', ');
+
+for (let i = 0; i < 20; i++) {
+
+  let firstName = fNames[Math.floor(Math.random() * fNames.length)];
+  let lastName = lNames[Math.floor(Math.random() * lNames.length)];
+
+  console.log(`${firstName} ${lastName}`);
+}
+
+
