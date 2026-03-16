@@ -49,3 +49,43 @@ else
 //Exercise
 //1. iterate over the two-dimensional array using array.prototype.forEach
 //2. Create a tree dimensional array (think rubriks cube) and iterate over each element using for..of
+
+const cube = [
+  [
+    ["W", "W", "W"],
+    ["W", "W", "W"],
+    ["W", "W", "W"]
+  ],
+  [
+    ["R", "R", "R"],
+    ["R", "R", "R"],
+    ["R", "R", "R"]
+  ],
+  [
+    ["B", "B", "B"],
+    ["B", "B", "B"],
+    ["B", "B", "B"]
+  ],
+  [
+    ["O", "O", "O"],
+    ["O", "O", "O"],
+    ["O", "O", "O"]
+  ],
+  [
+    ["G", "G", "G"],
+    ["G", "G", "G"],
+    ["G", "G", "G"]
+  ],
+  [
+    ["Y", "Y", "Y"],
+    ["Y", "Y", "Y"],
+    ["Y", "Y", "Y"]
+  ]
+];
+
+for (const side of cube) {
+  for (const row of side) {
+    console.log(`Row: ${row}`);
+    
+  }
+}

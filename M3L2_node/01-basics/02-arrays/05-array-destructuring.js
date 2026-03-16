@@ -33,3 +33,29 @@ console.log(Math.max(...numbers));
    - you need to create one array of the suit and one array of the values and then nested loops to create all cards
 2. use the ... operator to destructure your deck of cards to print our the cards to the console
 */
+
+const card = {suit: "", rank: ""};
+card.toString = function() {
+   return `${this.rank} of ${this.suit}`;
+};
+const deck = [];
+const suits = ["Hearts", "Clubs", "Diamond", "Clubs"];
+const ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Knight", "Queen", "King", "Ace"];
+
+for (let i = 0; i < suits.length; i++) {
+
+   for (let j = 0; j < ranks.length; j++) {
+
+      const newCard = Object.create(card);
+      newCard.suit = suits[i];
+      newCard.rank = ranks[j];
+      deck.push(newCard);
+
+   }
+}
+
+// cards.forEach(card => console.log(`${card.rank} of ${card.suit}`));
+
+// console.log(...cards);
+deck.forEach(card => console.log(card.toString()));
+

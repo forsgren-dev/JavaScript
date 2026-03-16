@@ -45,7 +45,7 @@ console.log('' + _friend2);
 _friend1.country = "Sweden";
 
 _address.isEqual = function(obj) {
-if (!(this.country === obj.country) || !(this.name === obj.name)) { return false };
+if (!(this.country === obj.country && this.name === obj.name)) { return false };
 
     return true;
 }

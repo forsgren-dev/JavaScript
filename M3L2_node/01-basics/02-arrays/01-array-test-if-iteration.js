@@ -53,3 +53,4 @@ console.groupEnd
 2. Loop through the array and present each Vehicle using a prototype toString
 
 */
+
