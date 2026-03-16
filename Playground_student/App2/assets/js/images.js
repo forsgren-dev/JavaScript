@@ -6,25 +6,27 @@ const nrOfItems = 14;
 const _seeder = new seedGenerator();
 let albumData = [];
 
-// Gathering data
-
-for (let i = 0; i < nrOfItems; i++) {
-
-const image = { 
-
-    id: uniqueId(),
-    imgSrc: `../img/${_seeder.fromString(`${imgFiles}`)}`,
-    imgTxt: `${_seeder.latinSentences(2)}`
-
-}
-albumData.push(image);
-
-}
-
-
+gatherData();
 renderItems();
 
-// Rendering
+// Gathering data
+function gatherData() {
+
+    for (let i = 0; i < nrOfItems; i++) {
+
+        const image = {
+
+            id: uniqueId(),
+            imgSrc: `../img/${_seeder.fromString(`${imgFiles}`)}`,
+            imgTxt: `${_seeder.latinSentences(2)}`
+
+        }
+        albumData.push(image);
+
+    }
+}
+
+// Rendering data
 function renderItems() {
     let imgItems = document.querySelector('#ImgAlbum');
 
@@ -33,7 +35,7 @@ function renderItems() {
     for (let i = 0; i < albumData.length; i++) {
 
         const div = document.createElement("div");
-        
+
         div.className = "ImgItem";
 
         div.innerHTML = `
