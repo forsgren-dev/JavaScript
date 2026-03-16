@@ -1,22 +1,22 @@
 'use strict';
-import {seedGenerator, uniqueId, randomNumber, deepCopy, isEqual} from '../../../SeidoHelpers/seido-helpers.js';
+import { seedGenerator, uniqueId, randomNumber, deepCopy, isEqual } from '../../../SeidoHelpers/seido-helpers.js';
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 //Below I declare two parameters as needed and then the rest, numbers, is expanded into an array
 function sumRounds(mustHave1, mustHave2, ...numbers) {
-  let sum = mustHave1+mustHave2;
+  let sum = mustHave1 + mustHave2;
 
   //You should check that the parameters are of the type you expect
   if (typeof (mustHave1) !== 'number')
     throw new TypeError("alla parameters must be of type number");
   if (typeof (mustHave2) !== 'number')
     throw new TypeError("alla parameters must be of type number");
-  if (numbers.length>0 && typeof (numbers[0]) !== 'number')
+  if (numbers.length > 0 && typeof (numbers[0]) !== 'number')
     throw new TypeError("alla parameters must be of type number");
 
 
-  for(let i = 0; i < numbers.length; i+=1)  {
+  for (let i = 0; i < numbers.length; i += 1) {
     sum += Math.round(numbers[i]);
   }
   return sum;
@@ -25,8 +25,8 @@ function sumRounds(mustHave1, mustHave2, ...numbers) {
 console.log(sumRounds(5, 16, 18.1));          // 39
 console.log(sumRounds(2.3, 4, 5, 16, 18.1));  // 45
 
-const a = [1,2,3,4,5,6,7,8,9,];
-console.log(sumRounds(0,0, ...a));
+const a = [1, 2, 3, 4, 5, 6, 7, 8, 9,];
+console.log(sumRounds(0, 0, ...a));
 
 
 //Get quotes from seedGenerator
@@ -42,19 +42,19 @@ console.log(_quotes);
    - the function should return the quotes that contains the word "love"
   */
 
-  function filterLoveQuotes(firstQuote, ...quotes) {
-      if (typeof (firstQuote) !== 'string')
-        throw new TypeError("alla parameters must be of type string");  
-      for(let i = 0; i < quotes.length; i+=1)  {
-         if (typeof (quotes[i]) !== 'string')
-            throw new TypeError("alla parameters must be of type string");  
-          }
-      return [firstQuote, ...quotes].filter(quote => quote.toLowerCase().includes("love"));
-    }
+function filterLoveQuotes(firstQuote, ...quotes) {
+  if (typeof (firstQuote) !== 'string')
+    throw new TypeError("alla parameters must be of type string");
+  for (let i = 0; i < quotes.length; i += 1) {
+    if (typeof (quotes[i]) !== 'string')
+      throw new TypeError("alla parameters must be of type string");
+  }
+  return [firstQuote, ...quotes].filter(quote => quote.toLowerCase().includes("love"));
+}
 
-    const quotes = _quotes.map(quote => quote.quote);
-    
-    console.log("---------love quotes---------");
-    console.log(filterLoveQuotes("Hej", "I love you", "Love is all you need", ...quotes));
+const quotes = _quotes.map(quote => quote.quote);
 
-    
+console.log("---------love quotes---------");
+console.log(filterLoveQuotes("Hej", "I love you", "Love is all you need", ...quotes));
+
+
