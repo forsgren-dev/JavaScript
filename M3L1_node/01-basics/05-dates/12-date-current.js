@@ -10,9 +10,7 @@ console.log(today);
 console.log(`Year: ${today.getFullYear()}`);
 console.log(`Year: ${today.getYear()}`);
 console.log(`Month: ${today.getMonth()}`);
-console.log(`Day: ${today.getDate()}`);
-console.log(`Week-day: ${today.getDay()}`);
-
+console.log(`Day: ${today.getDay()}`);
 
 
 // Do a little extra string processing to make sure minutes are padded with
