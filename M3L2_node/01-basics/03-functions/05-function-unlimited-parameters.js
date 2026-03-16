@@ -36,7 +36,25 @@ const _quotes = _seeder.allQuotes;
 console.log(_quotes);
 
 
+
 /* Exercises
 1. Write a function that takes any number of quotes as parameters (but at least one) using the ...operator.
    - the function should return the quotes that contains the word "love"
   */
+
+  function filterLoveQuotes(firstQuote, ...quotes) {
+      if (typeof (firstQuote) !== 'string')
+        throw new TypeError("alla parameters must be of type string");  
+      for(let i = 0; i < quotes.length; i+=1)  {
+         if (typeof (quotes[i]) !== 'string')
+            throw new TypeError("alla parameters must be of type string");  
+          }
+      return [firstQuote, ...quotes].filter(quote => quote.toLowerCase().includes("love"));
+    }
+
+    const quotes = _quotes.map(quote => quote.quote);
+    
+    console.log("---------love quotes---------");
+    console.log(filterLoveQuotes("Hej", "I love you", "Love is all you need", ...quotes));
+
+    
