@@ -9,7 +9,7 @@ const person = {
     birthDate: new Date(1996, 5, 12),
     address: {
         street: 'Worcestire Blvd 412',
-        country: 'Australia', 
+        country: 'Australia',
         city: 'Sydney'
     }
 }
@@ -28,7 +28,7 @@ function Person1 ()
     this.birthDate = new Date(1996, 5, 12);
     this.address = {
         street: 'Worcestire Blvd 412',
-        country: 'Australia', 
+        country: 'Australia',
         city: 'Sydney'
     }
 

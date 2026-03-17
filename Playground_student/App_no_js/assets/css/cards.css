@@ -10,21 +10,44 @@
 
 
     */
-      --cardTopOffset:-200px;
-      --cardRow:7;			   
-      --cardCol:6;
+      --cardTopOffset:299px;
+      --cardRow:0;			   
+      --cardCol:0;
   }
 
 .ImgItem {
   background-color: var(--color1);
 }
 
-  .PlayingCard {
-    width: 190px;
-    height: 300px;
-    border-radius: 15px;
-    background-image: url(../../../img/cards.png);
-      background-position: top calc(var(--cardTopOffset) - var(--cardRow)*110px - var(--cardRow)*228px) left calc(-165px - var(--cardCol)*110px - var(--cardCol)*162px);
-  }
+.PlayingCard {
+  width: 138px;
+  height: 214px;
+  border-radius: 15px;
+  background-image: url(../../../img/cards.png);
+  background-repeat: no-repeat;
+
+  background-position:
+    calc(-40px - (var(--cardCol) * 189px))
+    calc(-40px - (var(--cardRow) * 265px));
+
+    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.ShuffleButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ShuffleButton button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--color2);
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px;
+}
 
   
