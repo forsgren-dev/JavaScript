@@ -1,33 +1,86 @@
 'use strict';
 
-let randomRow = 0;
-let randomCol = 0;
+import { deckOfCards } from "./deck-of-cards";
 
-const card = { suit: "", rank: "" };
-const deck = [];
-const suits = ["Hearts", "Clubs", "Diamond", "Clubs"];
-const ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Knight", "Queen", "King", "Ace"];
+deckOfCards.forEach(card => {
+
+    switch (card.suit) {
+        case 'Clubs':
+            switch (card.numeral) {
+                case 'Two': card.col = 0; card.row = 0; break;
+                case 'Three': card.col = 1; card.row = 0; break;
+                case 'Four': card.col = 2; card.row = 0; break;
+                case 'Five': card.col = 3; card.row = 0; break;
+                case 'Six': card.col = 4; card.row = 0; break;
+                case 'Seven': card.col = 5; card.row = 0; break;
+                case 'Eight': card.col = 6; card.row = 0; break;
+                case 'Nine': card.col = 0; card.row = 1; break;
+                case 'Ten': card.col = 1; card.row = 1; break;
+                case 'Knight': card.col = 2; card.row = 1; break;
+                case 'Queen': card.col = 3; card.row = 1; break;
+                case 'King': card.col = 4; card.row = 1; break;
+                case 'Ace': card.col = 5; card.row = 1; break;
+            } break;
 
 
-for (let i = 0; i < suits.length; i++) {
+        case 'Spades':
+            switch (card.numeral) {
+                case 'Two': card.col = 6; card.row = 1; break;
+                case 'Three': card.col = 0; card.row = 2; break;
+                case 'Four': card.col = 1; card.row = 2; break;
+                case 'Five': card.col = 2; card.row = 2; break;
+                case 'Six': card.col = 3; card.row = 2; break;
+                case 'Seven': card.col = 4; card.row = 2; break;
+                case 'Eight': card.col = 5; card.row = 2; break;
+                case 'Nine': card.col = 6; card.row = 2; break;
+                case 'Ten': card.col = 0; card.row = 3; break;
+                case 'Knight': card.col = 1; card.row = 3; break;
+                case 'Queen': card.col = 2; card.row = 3; break;
+                case 'King': card.col = 3; card.row = 3; break;
+                case 'Ace': card.col = 4; card.row = 3; break;
+            } break;
 
-    for (let j = 0; j < ranks.length; j++) {
+        case 'Diamonds':
+            switch (card.numeral) {
+                case 'Two': card.col = 6; card.row = 3; break;
+                case 'Three': card.col = 0; card.row = 4; break;
+                case 'Four': card.col = 1; card.row = 4; break;
+                case 'Five': card.col = 2; card.row = 4; break;
+                case 'Six': card.col = 3; card.row = 4; break;
+                case 'Seven': card.col = 4; card.row = 4; break;
+                case 'Eight': card.col = 5; card.row = 4; break;
+                case 'Nine': card.col = 6; card.row = 4; break;
+                case 'Ten': card.col = 0; card.row = 5; break;
+                case 'Knight': card.col = 1; card.row = 5; break;
+                case 'Queen': card.col = 2; card.row = 5; break;
+                case 'King': card.col = 3; card.row = 5; break;
+                case 'Ace': card.col = 4; card.row = 5; break;
+            } break;
 
-        const newCard = Object.create(card);
-        newCard.suit = suits[i];
-        newCard.rank = ranks[j];
-        deck.push(newCard);
+        case 'Hearts':
+            switch (card.numeral) {
+                case 'Two': card.col = 6; card.row = 5; break;
+                case 'Three': card.col = 0; card.row = 6; break;
+                case 'Four': card.col = 1; card.row = 6; break;
+                case 'Five': card.col = 2; card.row = 6; break;
+                case 'Six': card.col = 3; card.row = 6; break;
+                case 'Seven': card.col = 4; card.row = 6; break;
+                case 'Eight': card.col = 5; card.row = 6; break;
+                case 'Nine': card.col = 6; card.row = 6; break;
+                case 'Ten': card.col = 0; card.row = 7; break;
+                case 'Knight': card.col = 1; card.row = 7; break;
+                case 'Queen': card.col = 2; card.row = 7; break;
+                case 'King': card.col = 3; card.row = 7; break;
+                case 'Ace': card.col = 4; card.row = 7; break;
+            } break;
+
 
     }
+
 }
 
-function shuffleDeck() {
+);
 
-    for (let i = deck.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [deck[i], deck[j]] = [deck[j], deck[i]];
-    }
-}
 const hand = [
     { row: 2, col: 3 },
     { row: 1, col: 4 },
@@ -40,8 +93,8 @@ const cards = document.querySelectorAll(".PlayingCard");
 
 hand.forEach((card, i) => {
     if (cards[i]) {
-        cards[i].style.setProperty("--cardRow", card.row);
-        cards[i].style.setProperty("--cardCol", card.col);
+        // cards[i].style.setProperty("--cardRow", card.row);
+        // cards[i].style.setProperty("--cardCol", card.col);
     }
 });
 
@@ -49,10 +102,8 @@ function shuffleCards() {
 
     hand.forEach((card, i) => {
         if (cards[i]) {
-            randomRow = Math.floor(Math.random() * 5);
-            randomCol = Math.floor(Math.random() * 6);
-            cards[i].style.setProperty("--cardRow", randomRow);
-            cards[i].style.setProperty("--cardCol", randomCol);
+            // cards[i].style.setProperty("--cardRow", card.row);
+            // cards[i].style.setProperty("--cardCol", card.col);
         }
     });
 
