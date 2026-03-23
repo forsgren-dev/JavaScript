@@ -28,8 +28,6 @@ const prototypeCard = {
 
 
 
-
-
     toString: function () { return `${this.suit} of ${this.numeral} is a ${this.cardColor()} ${this.cardFaceOrNumeral()} card` }
 
     //if I use a getter

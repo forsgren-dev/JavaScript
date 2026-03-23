@@ -1,17 +1,20 @@
 'use strict';
-import {seedGenerator, uniqueId, randomNumber, deepCopy, isEqual} from '../../SeidoHelpers/seido-helpers.js';
+import {seedGenerator, uniqueId, randomNumber, deepCopy, isEqual} from '../../../SeidoHelpers/seido-helpers.js';
 
 const _seeder = new seedGenerator();
 
 
 function clickHandler (e) {
-    e.preventDefault();
+    //e.preventDefault();
     window.alert('Thank you for clicking');
 }
 
 
 const btn = document.getElementById('myBtn');
 const aref = document.querySelector('#myAref');
+
+btn.addEventListener('click', clickHandler);
+aref.addEventListener('click', clickHandler);
 
 
 //Exercises

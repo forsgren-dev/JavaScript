@@ -16,15 +16,15 @@ function clickHandler (event)  {
   window.alert(`The ${event.currentTarget.nodeName} element has been clicked!`);
 };
 
-const btn = document.getElementById('click-button');
-const href = document.getElementById('click-link');
-const div = document.getElementById('click-div');
+const btn = document.querySelector('#click-button');
+const href = document.querySelector('#click-link');
+const div = document.querySelector('#click-div');
 btn.addEventListener('click', clickHandler);
 href.addEventListener('click', clickHandler);
 div.addEventListener('click', clickHandler);
 
 
-const myList = document.getElementById('myPets');
+const myList = document.querySelector('#myPets');
 for (const item of myList.childNodes) {    
   item.addEventListener('click', clickHandler);
 }

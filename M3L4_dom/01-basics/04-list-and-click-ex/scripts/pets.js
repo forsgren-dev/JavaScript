@@ -1,5 +1,5 @@
 'use strict';
-import {seedGenerator, uniqueId, randomNumber, deepCopy, isEqual} from '../../../SeidoHelpers/seido-helpers.js';
+import {seedGenerator, uniqueId, randomNumber, deepCopy, isEqual} from '../../../../SeidoHelpers/seido-helpers.js';
 
 console.log("Hello from pets");
 
@@ -21,6 +21,20 @@ const _pets = [];
 for (let index = 0; index < 10; index++) {
     _pets.push(createPet(_seeder));    
 }
+
+const myList = document.querySelector('#myPets');
+console.log(_pets);
+for (const pet of _pets) {
+    const li = document.createElement('li');
+    li.textContent = pet.toString();
+    li.addEventListener('click', () => { 
+        window.alert(`You clicked ${pet.name}...`);
+    });
+    myList.appendChild(li);
+}
+
+const endMsg = document.querySelector('#endMsg');
+endMsg.textContent = _seeder.latinParagraph.paragraph;
 
 
 

@@ -7,10 +7,14 @@ const bankID = document.querySelector('#bankID');
 const acountList = document.querySelector('#accountList');
 const btnNext = document.querySelector('#btnNext');
 const btnPrev = document.querySelector('#btnPrev');
+const btnFirst = document.querySelector('#btnFirst');
+const btnLast = document.querySelector('#btnLast');
 
 //set EventHandler
 btnNext.addEventListener('click', clickNext);
 btnPrev.addEventListener('click', clickPrev);
+btnFirst.addEventListener('click', clickFirst);
+btnLast.addEventListener('click', clickLast);
 
 //Create accounts and bank
 const baccounts = new Account().createRandomMany(_seeder, 25);
@@ -35,8 +39,8 @@ function renderAccounts(renderPage) {
         
         const li = document.createElement('li');
         li.innerText = acc.toString();
-
         acountList.appendChild(li);
+        document.querySelector('#pageInfo').innerText = `Page ${currentPage+1} of ${maxNrPages}`;
     }
 }
 
@@ -58,6 +62,22 @@ function clickNext (event)  {
 function clickPrev (event)  {
     currentPage--;
     if (currentPage < 0) currentPage = 0;
+
+    removeAllChildNodes(acountList);
+    renderAccounts(currentPage)
+};
+
+function clickFirst (event)  {
+    currentPage = 0;
+    if (currentPage > maxNrPages-1) currentPage = maxNrPages-1;
+
+    removeAllChildNodes(acountList);
+    renderAccounts(currentPage)
+};
+
+function clickLast (event)  {
+    currentPage = maxNrPages-1;
+    if (currentPage > maxNrPages-1) currentPage = maxNrPages-1;
 
     removeAllChildNodes(acountList);
     renderAccounts(currentPage)

@@ -3,7 +3,7 @@
 import {seedGenerator, uniqueId, randomNumber, deepCopy, isEqual} from '../../../../SeidoHelpers/seido-helpers.js';
 
 const _prot = {color: "blue" };
-_prot.toString = function () {return `vehicle ${this.regNumber} is a ${this.color} ${this.make} owned by ${this.owner}`};
+_prot.toString = function () {return `${this.regNumber} is a ${this.color} ${this.make} owned by ${this.owner}`};
 
 function createVehicle(_seeder) {
     const vehicle = Object.create(_prot); 
@@ -30,9 +30,9 @@ for (let index = 0; index < 10; index++) {
     _vehicles.push(v1);
 }
 
-for (const item of _vehicles) {
-    console.log(item);
-}
+// for (const item of _vehicles) {
+//     console.log(item);
+// }
 
 function clickHandler (event)  {
 
@@ -43,7 +43,14 @@ function clickHandler (event)  {
   };
 
 
-const myList = document.getElementById('myList');
+const myList = document.querySelector('#myList');
+for (const vehicle of _vehicles) {
+const li = document.createElement('li');
+li.textContent = vehicle.toString();
+li.addEventListener('click', clickHandler);
+myList.appendChild(li);
+
+}
 
 
 /* Exercises

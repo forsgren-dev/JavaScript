@@ -79,8 +79,8 @@ function deckOfCards() {
 
 
 //Test it
-const deck = new deckOfCards();
-console.log(deck.count());
+// const deck = new deckOfCards();
+// console.log(deck.count());
 
 export {deckOfCards};
 
