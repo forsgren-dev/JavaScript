@@ -57,7 +57,7 @@ async function myFetch(url) {
       listItem.innerText = `${item.dt_txt}: ${item.main.temp}°C, ${item.weather[0].description}`;
       forecastList.appendChild(listItem);
     });
-    forecastList.appendChild(forecastList);
+    results.appendChild(forecastList);
   }
 })();
 

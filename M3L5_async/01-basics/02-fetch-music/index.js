@@ -71,6 +71,7 @@ async function myFetch(url, method = null, body = null) {
   reqUrl = `${url}/MusicGroups/CreateItem`;
   let newItem = {
     "musicGroupId": null,
+    "seeded": true,
     "name": "Honkedy dori with a heart full of love",
     "establishedYear": 2024,
     "genre": 1,
@@ -81,7 +82,7 @@ async function myFetch(url, method = null, body = null) {
   data = await myFetch(reqUrl, 'POST', newItem);
   console.log(data);
 
-  const musicgroupId = data.musicGroupId;
+  const musicgroupId = data.item.musicGroupId;
   //Use Post to add an Album to the newly created music group
   reqUrl = `${url}/Albums/CreateItem`;
   newItem = {
@@ -96,7 +97,7 @@ async function myFetch(url, method = null, body = null) {
   console.log(data);
   
   //Use POST to add an Artist to the newly created music group
-  reqUrl = `${url}/Artists/UpsertItem`;
+  reqUrl = `${url}/Artists/CreateItem`;
   newItem = {
   "artistId": null,
   "seeded": true,
@@ -113,7 +114,7 @@ async function myFetch(url, method = null, body = null) {
   //Use PUT to change the name of the newly created music group
   reqUrl = `${url}/MusicGroups/ReadItemDto?id=${musicgroupId}`;
   data = await myFetch(reqUrl);
-  data.name = data.name.replace(`Honkedy`, `Toppiwhoppy`);
+  data.item.name = data.item.name.replace(`Honkedy`, `Toppiwhoppy`);
   reqUrl = `${url}/MusicGroups/UpdateItem/${musicgroupId}`;
   data = await myFetch(reqUrl, 'PUT', data);
   console.log(data);
