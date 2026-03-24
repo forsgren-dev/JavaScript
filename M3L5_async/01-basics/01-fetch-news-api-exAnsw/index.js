@@ -43,7 +43,7 @@ async function myFetch(url) {
 (async () => {
 
   //Here I write all the code to be executed at script top level, c# main level
-  const forecastList = document.getElementById('results');
+  const results = document.getElementById('results');
 
   const city = "Stockholm";
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&lang=en&appid=${_apiKey}`;
